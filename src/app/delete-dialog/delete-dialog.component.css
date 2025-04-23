@@ -1,0 +1,64 @@
+/* Style for the dialog title */
+.mat-dialog-title {
+    text-align: center;
+    font-size: 24px; /* Title font size */
+    font-weight: bold;
+    color: #f44336; /* Red color for warning (danger) */
+    margin-bottom: 10px; /* Space between title and content */
+  }
+  
+  /* Style for dialog content */
+  .mat-dialog-content {
+    text-align: center;
+    font-size: 18px; /* Slightly larger font size for readability */
+    color: #555; /* Darker color for text */
+    padding: 20px;
+    margin-bottom: 20px; /* Space between content and action buttons */
+  }
+  
+  /* Style for dialog actions (buttons) */
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+    padding: 15px;
+  }
+  
+  /* Style for the Cancel button */
+  button.mat-button:first-child {
+    background-color: #9e9e9e; /* Gray color for Cancel */
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.mat-button:first-child:hover {
+    background-color: #757575; /* Darker gray on hover */
+  }
+  
+  /* Style for the Delete button */
+  button.mat-button:last-child {
+    background-color: #f44336; /* Red color for Delete */
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.mat-button:last-child:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+  }
+  
+  /* Optional: Add a little shadow to make the dialog stand out */
+  .mat-dialog-container {
+    border-radius: 8px;
+    max-width: 400px; /* Set a fixed width */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+  }
+  

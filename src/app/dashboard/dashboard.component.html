@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Dashboard</title>
+   </head>
+<body>
+
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <a href="#" class="nav-button">My Dashboard</a>
+        <div class="nav-buttons">
+            <button class="nav-button" routerLink="/dashboard/getallstudent">Dashboard</button>
+            <button class="nav-button" routerLink="/register"  [disabled]="userRole === 'USER'" >Sign Up</button>
+            <button class="nav-button"></button>
+            <button class="nav-button" (click)="logout()">Logout</button>
+        </div>
+    </div>
+    
+    <router-outlet></router-outlet>  
+   
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Your Company. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

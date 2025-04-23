@@ -1,0 +1,26 @@
+<div class="profile-background">
+    <!-- Background Shapes -->
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  
+  <div *ngIf="profile; else loading" class="profile-container">
+    <h2>Admin Profile</h2>
+
+    <div class="profile-image-container">
+            <img [src]="'data:image/jpeg;base64,' + profile.fileData" alt="Profile Image" class="profile-image" />
+          </div>
+    
+    <div class="contact-info">
+    <!-- <p><strong>fileData</strong>{{profile.file_Data}}</p> -->
+      <p><strong>Username:</strong> {{ profile.username }}</p>
+      <p><strong>Email:</strong> {{ profile.email }}</p>
+      <p><strong>Role:</strong> {{ profile.role }}</p>
+      <p><strong>Address:</strong> {{ profile.address }}</p>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+  

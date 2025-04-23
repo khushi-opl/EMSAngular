@@ -1,0 +1,105 @@
+/* Global reset for all elements */
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #080710;
+    font-family: 'Poppins', sans-serif;
+}
+/* Style for profile image */
+.profile-image-container {
+    margin-bottom: 20px; /* Add space below the image */
+    text-align: center; /* Center the image */
+}
+
+.profile-image {
+    width: 120px; /* Set the desired width */
+    height: 120px; /* Set the desired height */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image fits inside the circle */
+    border: 3px solid #fff; /* Add a white border around the image */
+    box-shadow: 0 0 10px rgba(8, 7, 16, 0.6); /* Optional shadow */
+}
+
+
+/* Profile section styling */
+.profile-container {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background */
+    padding: 20px;
+    margin-top: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    max-width: 450px;
+    margin: 110px ;
+    backdrop-filter: blur(10px); /* Blurred background */
+    text-align: center;
+}
+
+/* Title of the profile */
+.profile-container h2 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Profile details */
+.profile-container p {
+    color: #e5e5e5;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.profile-container p strong {
+    font-weight: 600;
+}
+
+/* Loading state text */
+ng-template#loading p {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Special shape background for a more abstract look */
+.profile-background .shape {
+    height: 180px;
+    width: 180px;
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.profile-background .shape:first-child {
+    background: linear-gradient(#1845ad, #23a2f6);
+    left: -70px;
+    top: -70px;
+}
+
+.profile-background .shape:last-child {
+    background: linear-gradient(to right, #ff512f, #f09819);
+    right: -30px;
+    bottom: -70px;
+}
+
+/* Style for profile contact number and address */
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.contact-info p strong {
+    font-weight: bold;
+}
+

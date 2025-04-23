@@ -1,0 +1,48 @@
+/* Style for the dialog title */
+.mat-dialog-title {
+    text-align: center;
+    font-size: 24px; /* Increase font size for the title */
+    font-weight: bold;
+    color: darkolivegreen; /* Green color for success */
+    margin-bottom: 10px; /* Add spacing below the title */
+  }
+  
+  /* Style for dialog content */
+  .mat-dialog-content {
+    text-align: center;
+    font-size: 18px; /* Set a slightly larger font size */
+    color: #555; /* Darker text color for readability */
+    padding: 20px;
+    margin-bottom: 20px; /* Add spacing at the bottom */
+  }
+  
+  /* Style for dialog actions (buttons) */
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  /* Style for the "OK" button */
+  button.mat-button {
+    background-color: #4caf50;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 12px 24px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.mat-button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+  }
+  
+  /* Optional: Add a little shadow to make the dialog stand out */
+  .mat-dialog-container {
+    border-radius: 8px;
+    max-width: 400px; /* Set a fixed width */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for the dialog container */
+  }
+  
