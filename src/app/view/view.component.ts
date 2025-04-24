@@ -1,7 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { HttpcallService } from '../httpcall.service';
 import { ActivatedRoute } from '@angular/router';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-view',
@@ -11,23 +12,50 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ViewComponent { profile: any;
   id: any;
+  regForm:any;
 
-  constructor(private myservice: HttpcallService, private route: ActivatedRoute,
-     @Inject(MAT_DIALOG_DATA) public data: any,) {}
+  constructor( private route: ActivatedRoute,
+    private myservice:HttpcallService,
+     private dialog : MatDialog,
+     private fb:FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data: any,) {}
 
   ngOnInit(): void {
-    
     this.id =this.data.id;
-    console.log('Student ID:', this.id);
-    if (this.id) {
-    this.myservice.getUserById(this.id).subscribe({
-      next: (data) => {
-        this.profile = data;
-      },
-      error: (err) => {
-        console.error('Error fetching profile data', err);
-      }
+    this.regForm = this.fb.group({
+      sid:[{value:this.id,disabled:true}],
+      username: [{value:'',disabled:true}, [Validators.required]],
+      age: [{value:'',disabled:true}, Validators.required],
+      gender: [{value:'',disabled:true}, Validators.required],
+      address: [{value:'',disabled:true}, Validators.required],
+      email: [{value:'',disabled:true}, [Validators.required, Validators.email]],
+      password: [{value:'',disabled:true}, Validators.required],
+      confirm_password: [{value:'',disabled:true}, Validators.required],
+      role:[{value:'',disabled:true},Validators.required]
     });
-}
+    this.route.paramMap.subscribe(params =>  {
+  
+      console.log(this.id)
+      this.myservice.getUserById(this.id).subscribe(data => {
+      this.regForm.patchValue(data);
+      this.profile = data;
+      console.log(data)
+      console.log(this.data.id)
+      });
+    });
   }
+    
+//     this.id =this.data.id;
+//     console.log('Student ID:', this.id);
+//     if (this.id) {
+//     this.myservice.getUserById(this.id).subscribe({
+//       next: (data) => {
+//         this.profile = data;
+//       },
+//       error: (err) => {
+//         console.error('Error fetching profile data', err);
+//       }
+//     });
+// }
+//   }
 }

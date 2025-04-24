@@ -13,19 +13,6 @@ body {
     color: black; /* Dark text for better readability */
     margin: 0;
 }
-.profile-image-container {
-    margin-bottom: 20px; /* Add space below the image */
-    text-align: center; /* Center the image */
-  }
-  
-  .profile-image {
-    width: 60px; /* Set the desired width */
-    height: 60px; /* Set the desired height */
-    border-radius: 50%; /* Make the image circular */
-    object-fit: cover; /* Ensure the image fits inside the circle */
-    border: 3px solid #fff; /* Add a white border around the image */
-    box-shadow: 0 0 10px rgba(8, 7, 16, 0.6); /* Optional shadow */
-  }
 
 /* Container Styling */
 .container {
@@ -35,6 +22,20 @@ body {
     position: relative;
     color: black;
 }
+.profile-image-container {
+    margin-bottom: 20px; /* Add space below the image */
+    text-align: center; /* Center the image */
+  }
+  
+  .profile-image {
+    width: 80px; /* Set the desired width */
+    height: 80px; /* Set the desired height */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image fits inside the circle */
+    border: 3px solid #fff; /* Add a white border around the image */
+    box-shadow: 0 0 10px rgba(8, 7, 16, 0.6); /* Optional shadow */
+  }
+
 
 /* Background Shape Styling */
 .background {
@@ -85,13 +86,6 @@ th {
 
 td {
     font-size: 16px;
-}
-.pagination {
-    list-style: none; /* Removes the bullet points or dots */
-}
-
-.pagination li {
-    list-style: none; /* Removes any bullet points or dots */
 }
 
 /* Alternating Row Color */

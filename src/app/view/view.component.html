@@ -1,30 +1,39 @@
-<div class="profile-background">
-  <!-- Background Shapes -->
-  <div class="shape"></div>
-  <div class="shape"></div>
+<!-- Update Student Form -->
+<div class="update-student-container">
+
+
+  <form [formGroup]="regForm">
+    <div class="profile-image-container">
+      <img [src]="'data:image/jpeg;base64,' + profile.fileData" alt="Profile Image" class="profile-image" />
+    </div>
+    <!-- Student ID (readonly) -->
+    <label for="sid">Student ID</label>
+    <input type="text" id="sid" name="sid" placeholder="Student ID"  formControlName="sid" >
+
+    <!-- Name Field -->
+    <label for="name">Full Name</label>
+    <input type="text" id="username"  name="username" placeholder="Enter full name" formControlName="username"  >
+
+    
+
+    <!-- Gender Radio Buttons -->
+    <label>Gender</label>
+    <div class="gender-radio">
+      <div><input type="radio" id="male" name="gender" value="MALE" formControlName="gender"><label for="male">Male</label></div>
+      <div><input type="radio" id="female" name="gender" value="FEMALE" formControlName="gender"><label for="female">Female</label></div>
+      <div><input type="radio" id="other" name="gender" value="OTHER" ><label for="other">Other</label></div>
+    </div>
+
+    <!-- Address Field -->
+    <label for="address">Address</label>
+    <input type="text" id="address"  name="address" formControlName="address" placeholder="Enter student address" >
+
+    <label for="email">Email</label>
+    <input type="text" id="email"  name="email" formControlName="email" placeholder="Enter Email" >
+    
+    <label for="role">Role</label>
+    <input type="text" id="role"  name="role" formControlName="role" placeholder="Enter role">
+
+
+  </form>
 </div>
-
-<div *ngIf="profile; else loading" class="profile-container">
-  <h2 class="profile-header">Admin Profile</h2>
-
-  <div class="profile-image-container">
-      <!-- Display profile image if available -->
-      <img [src]="'data:image/jpeg;base64,' + profile.fileData" alt="Profile Image" class="profile-image" *ngIf="profile.fileData" />
-      <!-- Display a default image if fileData is not available -->
-      <img *ngIf="!profile.fileData" src="assets/default-profile.jpg" alt="Default Profile Image" class="profile-image" />
-  </div>
-
-  <div class="contact-info">
-      <p><strong>ID:</strong> {{ profile.id }}</p>
-      <p><strong>Username:</strong> {{ profile.username }}</p>
-      <p><strong>Email:</strong> {{ profile.email }}</p>
-      <p><strong>Role:</strong> {{ profile.role }}</p>
-      <p><strong>Address:</strong> {{ profile.address }}</p>
-      <p><strong>Date of Birth:</strong> {{ profile.dob | date: 'shortDate' }}</p>
-      <p><strong>Gender:</strong> {{ profile.gender }}</p>
-  </div>
-</div>
-
-<ng-template #loading>
-  <p class="loading-text">Loading...</p>
-</ng-template>

@@ -18,13 +18,10 @@
     <div class="form-container">
         <h3>Reset Your Password</h3>
         <p>Please enter your new password and confirm it below.</p>
-        <form >
+        <form [formGroup]="employeeForm" (ngSubmit)="reset()">
             <label for="password">New Password</label>
-            <input type="password" id="password" placeholder="Enter new password" required>
+            <input type="password" id="password" formControlName="password" placeholder="Enter new password" required>
 
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" placeholder="Confirm your password" required>
-
-            <button type="submit">Reset Password</button>
+            <button type="submit" >Reset Password</button>
         </form>
     </div>

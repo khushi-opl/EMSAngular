@@ -1,17 +1,11 @@
 <div class="container">
-    <h2 class="mb-4 text-center">Employee Data</h2> 
-    <form [formGroup]="searchform">
-    <input type="text"  id="name" formControlName="name">
-  <!-- Reset Button -->
-  <button (click)="searchStudents()" class="btn btn-primary">Search</button>
-  <button (click)="resetSearch()" class="btn btn-secondary">Reset</button> </form>
-      <table class="table table-bordered" >
-       
+    <h2 class="mb-4 text-center">Users Data</h2>      
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th class="id-column">Id</th>
             <th>ProfileImage</th>
-            <th>Name</th>   
+            <th>Name</th>    
             <th>Gender</th>
             <th>Address </th>
             <th>Email </th>
@@ -33,9 +27,8 @@
           <tr *ngFor="let s of studentlist; index as i">
             <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td> 
             <div class="profile-image-container">
-          <img [src]="'data:image/jpeg;base64,' + s.fileData" alt="Profile Image" class="profile-image" />
-        </div>
-             <!-- <td>{{i +1}}</td>  -->
+              <img [src]="'data:image/jpeg;base64,' + s.fileData" alt="Profile Image" class="profile-image" />
+            </div>
             <td>{{s.username}}</td>
             <td>{{s.gender}}</td>
             <td>{{s.address}}</td> 
@@ -47,24 +40,20 @@
             <td> <button class="btn-danger" (click)= "delete(s.id)">Delete</button></td>
           </tr>
           <td colspan="7">
-            <nav aria-label="Page navigation">
-              <ul class="pagination justify-content-center">
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
                 <li class="page-item" [class.disabled]="currentPage === 1">
-                  <button class="page-link" (click)="getAllstdByPage(currentPage - 1)">Previous</button>
+                    <button class="page-link" (click)="getAllstdByPage(currentPage - 1)">Previous</button>
                 </li>
                 <li class="page-item" *ngFor="let page of totalPagesArray" [class.active]="page === currentPage">
-                  <!-- Conditionally show page numbers or ellipses -->
-                  <button class="page-link" (click)="getAllstdByPage(page)" *ngIf="page !== -1">{{ page }}</button>
-                  <span class="page-link" *ngIf="page === -1">...</span>
+                    <button class="page-link" (click)="getAllstdByPage(page)">{{ page }}</button>
                 </li>
                 <li class="page-item" [class.disabled]="currentPage === totalPages">
-                  <button class="page-link" (click)="getAllstdByPage(currentPage + 1)">Next</button>
+                    <button class="page-link" (click)="getAllstdByPage(currentPage + 1)">Next</button>
                 </li>
-              </ul>
-            </nav>
-            <!-- Display current page out of total pages -->
-            <p class="text-center">Page {{currentPage}} of {{totalPages}}</p>
-          </td>
+            </ul>
+        </nav>
+      </td> 
         </tbody>
         </table>
     </div>

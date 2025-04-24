@@ -25,6 +25,7 @@ import { HttpcallService } from './httpcall.service';
 import { ErrorComponent } from './error/error.component';
 import { AdminComponent } from './admin/admin.component';
 import { ViewComponent } from './view/view.component';
+import { UsersComponent } from './users/users.component';
 
 
 
@@ -45,7 +46,8 @@ import { ViewComponent } from './view/view.component';
     LogoutDialogComponent,
     ErrorComponent,
     AdminComponent,
-    ViewComponent
+    ViewComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

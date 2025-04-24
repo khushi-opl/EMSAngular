@@ -10,11 +10,16 @@ import { GetallstudentComponent } from './getallstudent/getallstudent.component'
 import { authGuard } from './auth.guard';
 import { ErrorComponent } from './error/error.component';
 import { AdminComponent } from './admin/admin.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
     path:"",
     component:LoginComponent
+  },
+  {
+    path:"resetpw",
+    component:ResetpwComponent
   },
   {
     path:'getallstudent',
@@ -45,6 +50,10 @@ const routes: Routes = [
       {
         path:'getallstudent',
         component:GetallstudentComponent
+      },
+      {
+        path:'users',
+        component:UsersComponent
       }
 
     ],   canActivate:[authGuard],

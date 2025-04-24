@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class InterceptorService implements HttpInterceptor{
   constructor(private router:Router) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (req.url.includes('/user/login')) {
+    if (req.url.includes('/login') || req.url.includes('/user/sendLink/') || req.url.includes('/user/forgotPassword/')) {
       return next.handle(req);
     }
     const token = localStorage.getItem('token');

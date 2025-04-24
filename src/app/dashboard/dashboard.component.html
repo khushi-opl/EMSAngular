@@ -9,10 +9,12 @@
 
     <!-- Navbar Section -->
     <div class="navbar">
-        <a href="#" class="nav-button">My Dashboard</a>
+        <!-- <a href="#" class="nav-button">LogIn</a> -->
+        <button class="nav-button">Employee-System</button>
         <div class="nav-buttons">
             <button class="nav-button" routerLink="/dashboard/getallstudent">Dashboard</button>
-            <button class="nav-button" routerLink="/register"  [disabled]="userRole === 'USER'" >Sign Up</button>
+            <button class="nav-button" routerLink="/dashboard/users">ListOfusers</button>
+            <!-- <button class="nav-button" routerLink="/register"  [disabled]="userRole === 'USER'" >Sign Up</button> -->
             <button class="nav-button"></button>
             <button class="nav-button" (click)="logout()">Logout</button>
         </div>

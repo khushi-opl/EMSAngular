@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EncryptionServiceService } from './encryption-service.service';
 
@@ -21,9 +21,22 @@ export class HttpcallService {
   deleteUser(id: string){
     return this.http.delete(this.apiurl + '/deleteUser/' + id , {responseType:"text"})
   }
-  getAllstdByPage(page:Number,student:Number,sortBy:string){
+  getUsers(page:Number,student:Number,sortBy:string){
+    return this.http.get<any>(this.apiurl + '/getUsers/' + page + '/' + student + '/' + sortBy)
+  }
+  forgotPassword(token: string, newPassword: string) {
+    return this.http.post( this.apiurl + `/forgotPassword/${token}`, {"password": newPassword}, {responseType:"text"});
+  }
+  sendLink(name: string) {
+    return this.http.get( this.apiurl +'/sendLink/'+ name, {responseType:"text"} );
+  }
+    getAllstdByPage(page:Number,student:Number,sortBy:string){
     return this.http.get<any>(this.apiurl + '/getAllstdByPage/' + page + '/' + student + '/' + sortBy)
   }
+  search(page:Number,student:Number,name:string){
+    return this.http.get<any>(this.apiurl + '/search/' + page + '/' + student + '/' + name)
+  }
+  
   getUserById(id:any){
     return this.http.get<any>(this.apiurl + '/getUserById/' + id)
   }
