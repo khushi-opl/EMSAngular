@@ -5,7 +5,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 import { UpdateComponent } from '../update/update.component';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
-
+import { saveAs } from 'file-saver';
 import { StorageService } from '../storage.service';
 
 @Component({
@@ -15,7 +15,10 @@ import { StorageService } from '../storage.service';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
+
+  constructor(private myservice :HttpcallService){}
   userRole: string = '';
+  resdata:any;
   lstorage=inject(StorageService)
   router=inject(Router)
   ngOnInit(): void {
@@ -28,6 +31,16 @@ export class DashboardComponent implements OnInit {
     localStorage.removeItem('username');
     localStorage.clear();
     this.router.navigate(['/login'])
+  }
+  download(){
+    this.myservice.downloadexceldata().subscribe(
+      data=>{
+        saveAs(data, 'employee_data.xlsx');
+        alert("Downloaded successfully");
+
+      }
+      
+    )
   }
 }
 

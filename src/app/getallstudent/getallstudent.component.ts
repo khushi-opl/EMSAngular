@@ -34,9 +34,22 @@ export class GetallstudentComponent { resdata: any;
   }
   ngOnInit(): void {
     this.searchform = this.fb.group({
-      name: ['', [Validators.required]]
+      name: ['', [Validators.required]],
+      // username: [{value:'',disabled:true}, [Validators.required]],
+      gender: ['', Validators.required], 
+      email: [{value:'',disabled:true}, [Validators.required, Validators.email]],
+      role:[{value:'',disabled:true},Validators.required],
       
     });
+  }
+  getInitials(fullName: string): string {
+    if (!fullName) return '';
+    const words = fullName.trim().split(' ');
+    let initials = words[0]?.charAt(0).toUpperCase();
+    if (words.length > 1) {
+      initials += words[1]?.charAt(0).toUpperCase();
+    }
+    return initials;
   }
   getAllstdByPage(current:number){
         console.log('Fetching data with sortBy:', this.sortBy);

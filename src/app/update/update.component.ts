@@ -31,13 +31,14 @@ export class UpdateComponent {
     this.regForm = this.fb.group({
       sid:[{value:this.studentId,disabled:true}],
       username: ['', Validators.required],
-      age: ['', Validators.required],
       gender: ['', Validators.required],
+      dob: ['' ,Validators.required],
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       confirm_password: ['', Validators.required],
-      role:['',Validators.required]
+      contactNumber:['',Validators.required],
+      pinCode:[{value:'',disabled:true},Validators.required],
     });
     this.route.paramMap.subscribe(params =>  {
   

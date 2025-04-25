@@ -1,10 +1,18 @@
 <div class="container">
     <h2 class="mb-4 text-center">Employee Data</h2> 
     <form [formGroup]="searchform">
-    <input type="text"  id="name" formControlName="name">
-  <!-- Reset Button -->
-  <button (click)="searchStudents()" class="btn btn-primary">Search</button>
-  <button (click)="resetSearch()" class="btn btn-secondary">Reset</button> </form>
+
+      <input type="text"  id="name" placeholder="Search"  formControlName="name">
+      <button (click)="searchStudents()" class="btn btn-secondary">Search</button>
+    <button (click)="resetSearch()" class="btn btn-secondary">Reset</button> 
+
+   <label for="sortBy" class= "ms-3">Sort by: </label>
+              <select id="sortBy" (change)="sortTable($event)">
+                <!-- <select id="sortBy"> -->
+               <option value="username">Name</option>
+               <option value="gender">Gender</option>
+            <option value="address">Address</option>
+            </select></form>
       <table class="table table-bordered" >
        
         <thead>
@@ -13,60 +21,61 @@
             <th>ProfileImage</th>
             <th>Name</th>   
             <th>Gender</th>
-            <th>Address </th>
-            <th>Email </th>
+           <th>Email </th>
             <th>Role</th>
-            <th colspan="3">
-            <label for="sortBy">Sort by: </label>
-              <select id="sortBy" (change)="sortTable($event)">
-                <!-- <select id="sortBy"> -->
-               <option value="username">Name</option>
-               <option value="gender">Gender</option>
-            <option value="address">Address</option>
-            </select>
-            </th>
-            <!-- <th></th>
-            <th></th> -->
+            <th> Operatation</th>
+          
           </tr>
         </thead>
         <tbody>   
           <tr *ngFor="let s of studentlist; index as i">
             <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td> 
-            <div class="profile-image-container">
-          <img [src]="'data:image/jpeg;base64,' + s.fileData" alt="Profile Image" class="profile-image" />
-        </div>
+            <td>
+              <ng-container *ngIf="s.fileData; else aliasBlock">
+                <img [src]="'data:image/png;base64,' + s.fileData" alt="profile" class="avatar-img" (error)="s.fileData = null" />
+              </ng-container>
+              <ng-template #aliasBlock>
+                <div class="avatar-fallback">
+                  {{ getInitials(s.username) }}
+                </div>
+              </ng-template>
+            </td>
              <!-- <td>{{i +1}}</td>  -->
             <td>{{s.username}}</td>
             <td>{{s.gender}}</td>
-            <td>{{s.address}}</td> 
+            <!-- <td>{{s.address}}</td>  -->
             <td>{{s.email}}</td>
             <td>{{s.role}}</td>
             <!-- <td> <button class="btn-primary" [routerLink]="['/update',s.id]">Edit</button></td> -->
-            <td> <button class="btn-primary" (click)="View(s.id)">View</button></td>
-            <td> <button class="btn-primary" (click)="update(s.id)">Edit</button></td>
-            <td> <button class="btn-danger" (click)= "delete(s.id)">Delete</button></td>
+            <td> <button class="btn-primary btn-space" (click)="View(s.id)">View</button>
+            <button class="btn-primary btn-space" (click)="update(s.id)">Edit</button>
+            <button class="btn-danger " (click)= "delete(s.id)">Delete</button></td>
           </tr>
-          <td colspan="7">
-            <nav aria-label="Page navigation">
-              <ul class="pagination justify-content-center">
-                <li class="page-item" [class.disabled]="currentPage === 1">
-                  <button class="page-link" (click)="getAllstdByPage(currentPage - 1)">Previous</button>
-                </li>
-                <li class="page-item" *ngFor="let page of totalPagesArray" [class.active]="page === currentPage">
-                  <!-- Conditionally show page numbers or ellipses -->
-                  <button class="page-link" (click)="getAllstdByPage(page)" *ngIf="page !== -1">{{ page }}</button>
-                  <span class="page-link" *ngIf="page === -1">...</span>
-                </li>
-                <li class="page-item" [class.disabled]="currentPage === totalPages">
-                  <button class="page-link" (click)="getAllstdByPage(currentPage + 1)">Next</button>
-                </li>
-              </ul>
-            </nav>
-            <!-- Display current page out of total pages -->
-            <p class="text-center">Page {{currentPage}} of {{totalPages}}</p>
-          </td>
+        
         </tbody>
         </table>
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <button class="page-link " (click)="getAllstdByPage(currentPage - 1)">Previous</button>
+            </li>
+            <li class="page-item" *ngFor="let page of totalPagesArray" [class.active]="page === currentPage">
+              <!-- Conditionally show page numbers or ellipses -->
+              <button class="page-link" (click)="getAllstdByPage(page)" *ngIf="page !== -1">{{ page }}</button>
+              <span class="page-link" *ngIf="page === -1">...</span>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+              <button class="page-link" (click)="getAllstdByPage(currentPage + 1)">Next</button>
+            </li>
+          </ul>
+        </nav>
+        <!-- Display current page out of total pages -->
+        <div class="page-item fw-bold text-center m-2">
+          <p class="m-0">Current records {{ currentPage * 10 - 10 + 1 }} to {{currentPage * 10 -
+               10 +pageSize}} </p>
+     </div>
+        <p class="text-center">Page {{currentPage}} of {{totalPages}}</p>
+
     </div>
   
   

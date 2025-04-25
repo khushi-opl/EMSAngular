@@ -25,14 +25,16 @@ export class ViewComponent { profile: any;
     this.regForm = this.fb.group({
       sid:[{value:this.id,disabled:true}],
       username: [{value:'',disabled:true}, [Validators.required]],
-      age: [{value:'',disabled:true}, Validators.required],
-      gender: [{value:'',disabled:true}, Validators.required],
+      gender: ['', Validators.required],
+      dob: [{value:'',disabled:true}, Validators.required],
       address: [{value:'',disabled:true}, Validators.required],
       email: [{value:'',disabled:true}, [Validators.required, Validators.email]],
       password: [{value:'',disabled:true}, Validators.required],
-      confirm_password: [{value:'',disabled:true}, Validators.required],
-      role:[{value:'',disabled:true},Validators.required]
+      role:[{value:'',disabled:true},Validators.required],
+      contactNumber:[{value:'',disabled:true},Validators.required],
+      pinCode:[{value:'',disabled:true},Validators.required],
     });
+    
     this.route.paramMap.subscribe(params =>  {
   
       console.log(this.id)
@@ -43,19 +45,15 @@ export class ViewComponent { profile: any;
       console.log(this.data.id)
       });
     });
-  }
     
-//     this.id =this.data.id;
-//     console.log('Student ID:', this.id);
-//     if (this.id) {
-//     this.myservice.getUserById(this.id).subscribe({
-//       next: (data) => {
-//         this.profile = data;
-//       },
-//       error: (err) => {
-//         console.error('Error fetching profile data', err);
-//       }
-//     });
-// }
-//   }
+  }
+  getInitials(fullName: string): string {
+    if (!fullName) return '';
+    const words = fullName.trim().split(' ');
+    let initials = words[0]?.charAt(0).toUpperCase();
+    if (words.length > 1) {
+      initials += words[1]?.charAt(0).toUpperCase();
+    }
+    return initials;
+  }
 }

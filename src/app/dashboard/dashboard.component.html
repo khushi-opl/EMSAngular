@@ -14,7 +14,7 @@
         <div class="nav-buttons">
             <button class="nav-button" routerLink="/dashboard/getallstudent">Dashboard</button>
             <button class="nav-button" routerLink="/dashboard/users">ListOfusers</button>
-            <!-- <button class="nav-button" routerLink="/register"  [disabled]="userRole === 'USER'" >Sign Up</button> -->
+            <button class="nav-button" (click)="download()">Download</button>
             <button class="nav-button"></button>
             <button class="nav-button" (click)="logout()">Logout</button>
         </div>

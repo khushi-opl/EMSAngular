@@ -11,6 +11,8 @@
       <label for="name">Full Name</label>
       <input type="text" id="username"  name="username" placeholder="Enter full name" formControlName="username"  >
   
+      <label for="name">DOB</label>
+      <input type="text" id="username"  name="dob" formControlName="dob"  >
       <!-- Gender Radio Buttons -->
       <label>Gender</label>
       <div class="gender-radio">
@@ -25,9 +27,13 @@
 
       <label for="email">Email</label>
       <input type="text" id="email"  name="email" formControlName="email" placeholder="Enter Email" >
+
+      <label for="email">contactNumber</label>
+      <input type="text" id="contactNumber"  name="contactNumber" formControlName="contactNumber"  >
+  
+      <label for="email">pinCode</label>
+      <input type="text" id="pinCode"  name="pinCode" formControlName="pinCode" >
       
-      <label for="role">Role</label>
-      <input type="text" id="role"  name="role" formControlName="role" placeholder="Enter role">
   
       <!-- Submit Button -->
       <button type="submit" (click)="openDialog()">Update</button>

@@ -3,26 +3,35 @@
 
 
   <form [formGroup]="regForm">
-    <div class="profile-image-container">
-      <img [src]="'data:image/jpeg;base64,' + profile.fileData" alt="Profile Image" class="profile-image" />
-    </div>
+    <ng-container *ngIf="profile.fileData; else aliasBlock">
+      <img [src]="'data:image/png;base64,' + profile.fileData" alt="profile" class="avatar-img" (error)="profile.fileData = null" />
+    </ng-container>
+    <ng-template #aliasBlock>
+      <div class="avatar-fallback">
+        {{ getInitials(profile.username) }}
+      </div>
+    </ng-template>
+  
     <!-- Student ID (readonly) -->
     <label for="sid">Student ID</label>
     <input type="text" id="sid" name="sid" placeholder="Student ID"  formControlName="sid" >
 
     <!-- Name Field -->
     <label for="name">Full Name</label>
-    <input type="text" id="username"  name="username" placeholder="Enter full name" formControlName="username"  >
+    <input type="text" id="username"  name="username"  formControlName="username"  >
+
+    <label for="name">DOB</label>
+    <input type="text" id="username"  name="dob" formControlName="dob"  >
 
     
 
     <!-- Gender Radio Buttons -->
     <label>Gender</label>
-    <div class="gender-radio">
-      <div><input type="radio" id="male" name="gender" value="MALE" formControlName="gender"><label for="male">Male</label></div>
-      <div><input type="radio" id="female" name="gender" value="FEMALE" formControlName="gender"><label for="female">Female</label></div>
-      <div><input type="radio" id="other" name="gender" value="OTHER" ><label for="other">Other</label></div>
-    </div>
+      <div class="gender-radio">
+        <div><input type="radio" id="male" name="gender" value="MALE" formControlName="gender"><label for="male">Male</label></div>
+        <div><input type="radio" id="female" name="gender" value="FEMALE" formControlName="gender"><label for="female">Female</label></div>
+        <div><input type="radio" id="other" name="gender" value="OTHER" formControlName="gender" ><label for="Other">Other</label></div>
+      </div>
 
     <!-- Address Field -->
     <label for="address">Address</label>
@@ -30,6 +39,12 @@
 
     <label for="email">Email</label>
     <input type="text" id="email"  name="email" formControlName="email" placeholder="Enter Email" >
+
+    <label for="email">contactNumber</label>
+    <input type="text" id="contactNumber"  name="contactNumber" formControlName="contactNumber"  >
+
+    <label for="email">pinCode</label>
+    <input type="text" id="pinCode"  name="pinCode" formControlName="pinCode" >
     
     <label for="role">Role</label>
     <input type="text" id="role"  name="role" formControlName="role" placeholder="Enter role">

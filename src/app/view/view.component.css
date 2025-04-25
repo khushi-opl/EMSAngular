@@ -8,12 +8,36 @@
   /* Container for the Update Student Form */
   .update-student-container {
     width: 420px;
-    /* margin: 50px auto; */
+    height: 600px; /* Fixed height */
+    overflow-y: auto; /* Adds scroll when content overflows */
     background-color: #2a2a2a;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     color: #fff;
+  }
+  .avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+  }
+ 
+  .avatar-fallback {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #00c2ff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+    margin: 0 auto; 
   }
   
   /* Heading */
@@ -86,13 +110,13 @@
   }
   /* Style for profile image */
 .profile-image-container {
-  margin-bottom: 20px; /* Add space below the image */
+  margin-bottom: 5px; /* Add space below the image */
   text-align: center; /* Center the image */
 }
 
 .profile-image {
-  width: 120px; /* Set the desired width */
-  height: 120px; /* Set the desired height */
+  width: 75px; /* Set the desired width */
+  height: 75px; /* Set the desired height */
   border-radius: 50%; /* Make the image circular */
   object-fit: cover; /* Ensure the image fits inside the circle */
   border: 3px solid #fff; /* Add a white border around the image */

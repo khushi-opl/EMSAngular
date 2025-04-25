@@ -36,6 +36,9 @@ export class HttpcallService {
   search(page:Number,student:Number,name:string){
     return this.http.get<any>(this.apiurl + '/search/' + page + '/' + student + '/' + name)
   }
+  downloadexceldata(){
+    return this.http.get(this.apiurl + '/downloadexceldata', {responseType: 'blob'});
+  }
   
   getUserById(id:any){
     return this.http.get<any>(this.apiurl + '/getUserById/' + id)

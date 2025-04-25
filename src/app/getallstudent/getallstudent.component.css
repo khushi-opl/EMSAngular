@@ -13,9 +13,36 @@ body {
     color: black; /* Dark text for better readability */
     margin: 0;
 }
+.avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+  }
+ 
+  .avatar-fallback {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #00c2ff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+    margin: 0 auto; 
+  }
 .profile-image-container {
     margin-bottom: 20px; /* Add space below the image */
     text-align: center; /* Center the image */
+    display: flex;
+    justify-content: center; /* Center content horizontally using Flexbox */
+    align-items: center; /* Center content vertically using Flexbox */
+    height: 100%; /* Make sure the container takes up the full height of the parent (if needed) */
   }
   
   .profile-image {
@@ -25,7 +52,8 @@ body {
     object-fit: cover; /* Ensure the image fits inside the circle */
     border: 3px solid #fff; /* Add a white border around the image */
     box-shadow: 0 0 10px rgba(8, 7, 16, 0.6); /* Optional shadow */
-  }
+}
+
 
 /* Container Styling */
 .container {
@@ -62,7 +90,7 @@ table {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for a clean effect */
     overflow: hidden;
     animation: fadeIn 1s ease-out; /* Adding fade-in animation */
-    border: none;
+    border: 1px;
 }
 
 /* Table Header */
@@ -106,6 +134,9 @@ tbody tr:hover {
     transform: scale(1.02); /* Slight zoom effect on hover */
     transition: all 0.3s ease-in-out;
 }
+.ms-3{
+    margin-left: 700px; 
+}
 
 /* Sort Dropdown Styling */
 #sortBy {
@@ -117,6 +148,7 @@ tbody tr:hover {
     border: none;
     outline: none;
     transition: background-color 0.3s ease;
+    margin-left: 10px; 
 }
 #mb-4 text-center{
     color:black;
@@ -153,6 +185,23 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+.btn-secondary {
+    background-color: #007bff; /* Blue color for buttons */
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.btn-secondary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05);
 }
 
 .page-link {
@@ -205,11 +254,15 @@ button:hover {
     background-color: #28a745;
     color: white;
     border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 14px;
+    /* padding: 10px 20px; */
+    padding: 3px;
+    font-size: 20px;
     transition: 0.3s ease;
     border: none;
 }
+.btn-space {
+    margin-right: 10px; /* Adjust as needed */
+  }
 
 .btn-primary:hover {
     background-color: #218838;
@@ -221,8 +274,9 @@ button:hover {
     background-color: #e74c3c;
     color: white;
     border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 14px;
+    /* padding: 10px 20px; */
+    padding: 3px;
+    font-size: 20px;
     transition: 0.3s ease;
     border: none;
 }
