@@ -51,6 +51,14 @@ export class GetallstudentComponent { resdata: any;
     }
     return initials;
   }
+  getGenderLabel(value: number): string {
+  switch (value) {
+    case 0: return 'Male';
+    case 1: return 'Female';
+    case 2: return 'Other';
+    default: return 'Unknown';
+  }
+}
   getAllstdByPage(current:number){
         console.log('Fetching data with sortBy:', this.sortBy);
          this.myservice.getAllstdByPage(current,this.pageSize,this.sortBy).subscribe(data =>{
@@ -118,8 +126,6 @@ export class GetallstudentComponent { resdata: any;
 View(id:any){
   const dialogopen=this.dialog.open(ViewComponent,{
     data: {id:id}
-    
-
    });  
 
 }

@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 class="mb-4 text-center">Employee Data</h2> 
+    <h2 class="mb-4 text-center">Admin Data</h2> 
     <form [formGroup]="searchform">
 
       <input type="text"  id="name" placeholder="Search"  formControlName="name">
@@ -11,7 +11,7 @@
                 <!-- <select id="sortBy"> -->
                <option value="username">Name</option>
                <option value="gender">Gender</option>
-            <option value="address">Address</option>
+            <!-- <option value="address">Address</option> -->
             </select></form>
       <table class="table table-bordered" >
        
@@ -23,6 +23,7 @@
             <th>Gender</th>
            <th>Email </th>
             <th>Role</th>
+            <!-- <th>isActive</th> -->
             <th> Operatation</th>
           
           </tr>
@@ -42,14 +43,17 @@
             </td>
              <!-- <td>{{i +1}}</td>  -->
             <td>{{s.username}}</td>
-            <td>{{s.gender}}</td>
-            <!-- <td>{{s.address}}</td>  -->
+            <td>{{s.gender }}</td>        
             <td>{{s.email}}</td>
             <td>{{s.role}}</td>
+            <!-- <td>{{s.isActive}}</td> -->
+            
             <!-- <td> <button class="btn-primary" [routerLink]="['/update',s.id]">Edit</button></td> -->
-            <td> <button class="btn-primary btn-space" (click)="View(s.id)">View</button>
-            <button class="btn-primary btn-space" (click)="update(s.id)">Edit</button>
-            <button class="btn-danger " (click)= "delete(s.id)">Delete</button></td>
+            <td>  <i class="fas fa-eye btn-icon" (click)="View(s.id)"></i>
+                 <i class="fas fa-edit btn-icon" (click)="update(s.id)"></i>
+              <i class="fas fa-trash btn-icon" (click)="delete(s.id)"></i>
+            </td>
+            
           </tr>
         
         </tbody>
@@ -71,8 +75,8 @@
         </nav>
         <!-- Display current page out of total pages -->
         <div class="page-item fw-bold text-center m-2">
-          <p class="m-0">Current records {{ currentPage * 10 - 10 + 1 }} to {{currentPage * 10 -
-               10 +pageSize}} </p>
+          <p class="m-0">Current records {{ currentPage * 10 - 10 + 1 }} to 
+             {{ (currentPage - 1) * pageSize + studentlist.length }} </p>
      </div>
         <p class="text-center">Page {{currentPage}} of {{totalPages}}</p>
 

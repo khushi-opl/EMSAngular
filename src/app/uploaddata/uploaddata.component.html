@@ -1,0 +1,136 @@
+<div class="dialog-container">
+  <h2>Select User Type</h2>
+
+  <!-- Buttons for Single or Bulk -->
+  <div class="type-buttons">
+    <button (click)="onTypeSelect('single')" [class.active]="selectedType === 'single'">Single User</button>
+    <button (click)="onTypeSelect('bulk')" [class.active]="selectedType === 'bulk'">Bulk User</button>
+  </div>
+
+  <div *ngIf="selectedType === 'single'" class="user-form">
+    <form [formGroup]="singleUserForm" (ngSubmit)="submitUserForm()">
+
+     
+    
+  <div class="profile-image-section">
+  <label>Profile Image</label>
+
+  <!-- Preview with fallback initials -->
+  <div class="profile-preview">
+    <img *ngIf="selectedImagePreview; else initialsBlock" [src]="selectedImagePreview" class="avatar-img" />
+    <ng-template #initialsBlock>
+      <div class="avatar-fallback">
+        {{ getInitials(singleUserForm.get('name')?.value) }}
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- File upload input -->
+  <input type="file" (change)="onImageSelected($event)" />
+  <small class="note">Optional: Upload a profile image or we’ll use your initials.</small>
+</div>
+
+      <div>
+        
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" type="text" placeholder="Enter Name" />
+        <div *ngIf="singleUserForm.get('name')?.invalid && singleUserForm.get('name')?.touched">
+          <small>Name is required.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="dob">Date of Birth:</label>
+        <input id="dob" formControlName="dob" type="date" />
+        <div *ngIf="singleUserForm.get('dob')?.invalid && singleUserForm.get('dob')?.touched">
+          <small>Date of Birth is required.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="username">Username:</label>
+        <input id="username" formControlName="username" type="text" placeholder="Enter Username" />
+        <div *ngIf="singleUserForm.get('username')?.invalid && singleUserForm.get('username')?.touched">
+          <small>Username must be between 4 and 50 characters.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input id="password" formControlName="password" type="password" placeholder="Enter Password" />
+        <div *ngIf="singleUserForm.get('password')?.invalid && singleUserForm.get('password')?.touched">
+          <small>Password must be at least 3 characters.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="gender">Gender:</label>
+        <select id="gender" formControlName="gender">
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+          <option value="OTHER">Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="address">Address:</label>
+        <input id="address" formControlName="address" type="text" placeholder="Enter Address" />
+        <div *ngIf="singleUserForm.get('address')?.invalid && singleUserForm.get('address')?.touched">
+          <small>Address must be between 5 and 255 characters.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" type="email" placeholder="Enter Email" />
+        <div *ngIf="singleUserForm.get('email')?.invalid && singleUserForm.get('email')?.touched">
+          <small>Enter a valid email.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="contactNumber">Contact Number:</label>
+        <input id="contactNumber" formControlName="contactNumber" type="text" placeholder="Enter Contact Number" />
+        <div *ngIf="singleUserForm.get('contactNumber')?.invalid && singleUserForm.get('contactNumber')?.touched">
+          <small>Phone number must be 10 digits.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="pinCode">Pin Code:</label>
+        <input id="pinCode" formControlName="pinCode" type="text" placeholder="Enter Pin Code" />
+      </div>
+
+      <div>
+        <label for="role">Role:</label>
+        <select id="role" formControlName="role">
+          <option value="ADMIN">Admin</option>
+          <option value="USER">User</option>
+          <!-- <option value="manager">Manager</option> -->
+        </select>
+      </div>
+
+      <div class="type-buttons">
+        <button type="submit" [disabled]="singleUserForm.invalid">Submit</button>
+        <button type="button" (click)="oncancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- If bulk is selected, show format options and file upload input -->
+  <div *ngIf="selectedType === 'bulk'" class="format-options">
+    <label><input type="radio" name="format" value="csv" [(ngModel)]="selectedFormat" /> CSV</label>
+    <label><input type="radio" name="format" value="xlsx" [(ngModel)]="selectedFormat" /> XLSX</label>
+
+    <!-- <div>
+      <label for="bulkFile">Select file:</label>
+      <input id="bulkFile" type="file" (change)="onFileSelect($event)" />
+    </div>
+  </div> -->
+
+  <!-- Footer buttons -->
+  <div class="dialog-actions">
+    <button (click)="oncancel()">Cancel</button>
+    <button [disabled]="!selectedType" (click)="proceed()">Download</button>
+  </div>
+</div>

@@ -10,6 +10,7 @@
 body {
     background-color: #080710;
     font-family: 'Poppins', sans-serif;
+    align-items: center;
 }
 /* Style for profile image */
 .profile-image-container {
@@ -34,10 +35,13 @@ body {
     margin-top: 200px;
     border-radius: 10px;
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    max-width: 450px;
-    margin: 110px ;
+    width: 450px;
+    margin: 110px auto;
     backdrop-filter: blur(10px); /* Blurred background */
     text-align: center;
+    align-items: center;
+     width: 400px; /* set fixed width */
+    height: auto;
 }
 
 /* Title of the profile */
@@ -69,8 +73,8 @@ ng-template#loading p {
 
 /* Special shape background for a more abstract look */
 .profile-background .shape {
-    height: 180px;
-    width: 180px;
+    height: 200px;
+    width: 200px;
     position: absolute;
     border-radius: 50%;
     z-index: -1;

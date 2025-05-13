@@ -1,0 +1,109 @@
+/* Ensure that the entire form is centered, compact and responsive */
+form {
+  width: 400px; /* Limit form width */
+  margin: 0 auto; /* Center form horizontally */
+  padding: 20px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff6f61, #ffb347); /* Gradient background */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent any overflow that would trigger scrollbar */
+  white-space: normal; /* Allow text content to wrap */
+  word-wrap: break-word; /* Ensure words break in the content to prevent overflow */
+}
+
+/* Label styling */
+label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+/* Input field styling */
+input[type="email"] {
+  width: 100%; /* Ensure the input takes full width of the container */
+  padding: 12px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #fff;
+  margin-bottom: 15px;
+  transition: border 0.3s ease-in-out;
+  box-sizing: border-box; /* Include padding in width calculations */
+}
+
+/* Input focus styling */
+input[type="email"]:focus {
+  border-color: #2ecc71; /* Green border on focus */
+  outline: none;
+}
+
+/* Error message styling */
+div small {
+  font-size: 0.9rem;
+  color: #ff4747; /* Red color for error messages */
+  display: block;
+  margin-top: 5px;
+}
+
+/* Styling for Cancel and Submit buttons */
+button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  box-sizing: border-box; /* Make sure buttons don’t overflow */
+}
+
+/* Cancel button styling */
+button[type="button"] {
+  background-color: #e74c3c;
+  color: white;
+  margin-right: 10px;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Button hover effect */
+button:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Disabled Submit button */
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Make buttons stack vertically and fill width in mobile view */
+@media (max-width: 500px) {
+  form {
+    padding: 15px;
+  }
+
+  input[type="email"] {
+    font-size: 1.1rem; /* Larger font size for mobile */
+  }
+
+  button {
+    width: 100%; /* Buttons take full width on small screens */
+    margin-top: 10px;
+  }
+
+  button[type="button"] {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}

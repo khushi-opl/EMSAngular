@@ -16,6 +16,8 @@ export class UpdateComponent {
   studentId: any;
   regForm:any;
   studentData: any = {}; 
+  profile: any;
+  selectedImage: File | null = null;
 
   constructor(private route: ActivatedRoute,
     private myservice:HttpcallService,
@@ -39,26 +41,76 @@ export class UpdateComponent {
       confirm_password: ['', Validators.required],
       contactNumber:['',Validators.required],
       pinCode:[{value:'',disabled:true},Validators.required],
+  
     });
     this.route.paramMap.subscribe(params =>  {
   
       console.log(this.studentId)
       this.myservice.getUserById(this.studentId).subscribe(data => {
       this.regForm.patchValue(data);
+      this.profile = data;
       console.log(data)
       console.log(this.data.id)
       });
     });
   }
-  updateUser(student:any){
-      this.myservice.updateUser(this.studentId ,this.regForm.value).subscribe(data=>
-      {
-      console.log(data)
+  getInitials(fullName: string): string {
+    if (!fullName) return '';
+    const words = fullName.trim().split(' ');
+    let initials = words[0]?.charAt(0).toUpperCase();
+    if (words.length > 1) {
+      initials += words[1]?.charAt(0).toUpperCase();
+    }
+    return initials;
+  }
+  onImageSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedImage = file;
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.profile.fileData = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  updateUser(): void {
+    const formData = new FormData();
+   
+    const formValue = {
+      ...this.regForm.getRawValue(), // disabled `id`
+    };
+    const employeeBlob = new Blob([JSON.stringify(formValue)], { type: 'application/json' });
+    formData.append('user', employeeBlob);
+    if (this.selectedImage) {
+      formData.append('profileImage', this.selectedImage);
+    }
+    else {
+     const emptyBlob = new Blob([], { type: 'application/octet-stream' });
+     formData.append('profileImage', emptyBlob);
+}
+    this.myservice.updateUser(this.studentId, formData).subscribe(
+      (data) => {
+        console.log(data)
       this.updatedata=data
-      // this.dialog.open(UpdateDialogComponent);
+        this.dialogRef.close(data);
+      },
+      (error) => {
+        console.error('Error updating user:', error);
       }
-      );
-      }
+    );
+  }
+  
+  // updateUser(student:any){
+    
+  //     this.myservice.updateUser(this.studentId ,this.regForm.value).subscribe(data=>
+  //     {
+  //     console.log(data)
+  //     this.updatedata=data
+  //     // this.dialog.open(UpdateDialogComponent);
+  //     }
+  //     );
+  //     }
    openDialog(): void {
       console.log('Opening dialog...');
       const dialogRef =this.dialog.open(UpdateDialogComponent,{

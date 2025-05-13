@@ -26,6 +26,9 @@ import { ErrorComponent } from './error/error.component';
 import { AdminComponent } from './admin/admin.component';
 import { ViewComponent } from './view/view.component';
 import { UsersComponent } from './users/users.component';
+import { EmailDialogComponent } from './email-dialog/email-dialog.component';
+import { UploaddataComponent } from './uploaddata/uploaddata.component';
+import { UplodFileComponent } from './uplod-file/uplod-file.component';
 
 
 
@@ -47,7 +50,10 @@ import { UsersComponent } from './users/users.component';
     ErrorComponent,
     AdminComponent,
     ViewComponent,
-    UsersComponent
+    UsersComponent,
+    EmailDialogComponent,
+    UploaddataComponent,
+    UplodFileComponent
   ],
   imports: [
     BrowserModule,

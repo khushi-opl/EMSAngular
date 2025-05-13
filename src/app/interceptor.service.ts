@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 export class InterceptorService implements HttpInterceptor{
   constructor(private router:Router) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (req.url.includes('/login') || req.url.includes('/user/sendLink/') || req.url.includes('/user/forgotPassword/')) {
+    if (req.url.includes('/login') || req.url.includes('/user/sendLink/') ||
+     req.url.includes('/user/forgotPassword/')) {
       return next.handle(req);
     }
     const token = localStorage.getItem('token');
@@ -28,7 +29,7 @@ export class InterceptorService implements HttpInterceptor{
   }
   private handleError(error: HttpErrorResponse) {
 
-    if (error.status === 401) {
+     if (error.status === 401 || error.error?.message?.includes('JWT expired')){
       console.error('Unauthorized access, please log in again');
       localStorage.removeItem('token');
       localStorage.removeItem('username');

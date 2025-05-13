@@ -1,0 +1,57 @@
+<div class="upload-container">
+    <label for="file-upload" class="custom-file-upload">
+      <input type="file" id="file-upload" (change)="onFileSelect($event)" accept=".xlsx, .xls" />
+      📁 Choose File
+    </label>
+  <span *ngIf="selectedFile" class="file-name">
+    📄 {{ selectedFile.name }}
+    <button class="clear-button" (click)="clearFile()">❌</button>
+  </span>
+    <button class="upload-button" (click)="Upload()">⬆️ Upload</button>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <!-- <div 
+  class="upload-container" 
+  (drop)="onFileDrop($event)" 
+  (dragover)="onDragOver($event)" 
+  (dragleave)="onDragLeave($event)"
+  [class.dragover]="isDragOver"
+>
+  <label for="file-upload" class="custom-file-upload">
+    <input 
+      type="file" 
+      id="file-upload" 
+      (change)="onFileSelect($event)" 
+      accept=".xlsx, .xls" 
+      hidden 
+    />
+    📁 Choose File
+  </label>
+
+  <span *ngIf="selectedFile" class="file-name">
+    📄 {{ selectedFile.name }}
+    <button class="clear-button" (click)="clearFile()">❌</button>
+  </span>
+
+  <button class="upload-button" (click)="Upload()">⬆️ Upload</button>
+</div> -->

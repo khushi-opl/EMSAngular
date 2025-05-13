@@ -122,6 +122,11 @@ tbody tr:hover {
 .ms-3{
     margin-left: 700px; 
 }
+.btn-icon {
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
 .profile-image-container {
     margin-bottom: 20px; /* Add space below the image */
     text-align: center; /* Center the image */
@@ -132,8 +137,8 @@ tbody tr:hover {
   }
   
   .profile-image {
-    width: 60px; /* Set the desired width */
-    height: 60px; /* Set the desired height */
+    width: 50px; /* Set the desired width */
+    height: 50px; /* Set the desired height */
     border-radius: 50%; /* Make the image circular */
     object-fit: cover; /* Ensure the image fits inside the circle */
     border: 3px solid #fff; /* Add a white border around the image */
@@ -164,6 +169,7 @@ tbody tr:hover {
 #sortBy:hover {
     background-color: #218838;
 }
+
 
 /* Buttons Styling */
 button {

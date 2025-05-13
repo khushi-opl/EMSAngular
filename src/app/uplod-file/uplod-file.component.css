@@ -1,0 +1,107 @@
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px;
+    background: linear-gradient(135deg, #ff6f61, #ffb347);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    /* margin: 50px auto; */
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .upload-container {
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.upload-container.dragover {
+  background-color: #f0f8ff;
+  border-color: #3f51b5;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 4px;
+}
+
+.upload-button {
+  margin-left: 10px;
+  padding: 8px 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-name {
+  display: inline-block;
+  margin-left: 10px;
+  font-style: italic;
+  color: #555;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clear-button {
+  margin-left: 8px;
+  border: none;
+  background: none;
+  color: black;
+  /* font-size: 1rem; */
+  cursor: pointer;
+  font-size: medium;
+}
+
+
+  
+  .custom-file-upload {
+    background-color: #ffffff;
+    color: #333;
+    padding: 12px 25px;
+    border: 2px dashed #007bff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #e6f0ff;
+    border-color: #0056b3;
+    color: #0056b3;
+  }
+  
+  .custom-file-upload input[type="file"] {
+    display: none;
+  }
+  
+  .upload-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background-color: #0056b3;
+  }
+  

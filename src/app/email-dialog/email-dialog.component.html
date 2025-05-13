@@ -1,0 +1,19 @@
+<!-- email-form.component.html -->
+
+<form [formGroup]="emailForm" (ngSubmit)="submit()">
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email" placeholder="Enter your email" />
+      <div *ngIf="emailForm.get('email')?.touched && emailForm.get('email')?.invalid">
+        <small *ngIf="emailForm.get('email')?.hasError('required')">Email is required.</small>
+        <small *ngIf="emailForm.get('email')?.hasError('email')">Please enter a valid email.</small>
+      </div>
+    </div>
+    
+    <div>
+      <!-- Cancel and Submit buttons -->
+      <button type="button" (click)="cancel()">Cancel</button>
+      <button type="submit" [disabled]="emailForm.invalid">Submit</button>
+    </div>
+  </form>
+  

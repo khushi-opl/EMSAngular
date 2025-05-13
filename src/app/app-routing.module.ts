@@ -71,6 +71,7 @@ const routes: Routes = [
     component:NavbarComponent
   },
   
+  
   {
     path: '**', // A wildcard route in case no route is matched
     component:ErrorComponent, // Redirect to the login page if the route doesn't exist

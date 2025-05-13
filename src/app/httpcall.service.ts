@@ -11,12 +11,13 @@ export class HttpcallService {
   getAllUsers(){
     return this.http.get(this.apiurl +  '/getAllUsers');
   }
-  saveUser(post: any){
-    console.log(post)
-    return this.http.post(this.apiurl + '/saveUser', post,{responseType: "text"})
+  saveUser(formData: FormData){
+    console.log(formData)
+    return this.http.post(this.apiurl + '/saveUser', formData,{responseType: "text"})
   }
-  updateUser(id:String,student:any){
-    return this.http.put(this.apiurl + '/updateUser/' + id ,student, {responseType:"text"})
+  updateUser(id:String,formData: FormData){
+    console.log(formData)
+    return this.http.put(this.apiurl + '/updateUser/' + id ,formData, {responseType:"text"});
   }
   deleteUser(id: string){
     return this.http.delete(this.apiurl + '/deleteUser/' + id , {responseType:"text"})
@@ -39,9 +40,19 @@ export class HttpcallService {
   downloadexceldata(){
     return this.http.get(this.apiurl + '/downloadexceldata', {responseType: 'blob'});
   }
+  checkUserExist(email:any){
+    return this.http.get<any>(this.apiurl + '/checkUserExist/' + email)
+  }
   
   getUserById(id:any){
     return this.http.get<any>(this.apiurl + '/getUserById/' + id)
+  }
+  downloadexcelformat(format:String){
+    return this.http.get(this.apiurl + '/download-excel-format/' + format, {responseType: 'blob'});
+  }
+  dumpexceldata(filedata: FormData){
+    return this.http.post(this.apiurl + '/dump-excel-data', filedata)
+
   }
   login(post:any){
     // console.log(post)

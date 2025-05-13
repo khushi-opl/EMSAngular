@@ -1,0 +1,180 @@
+.dialog-container {
+  background: linear-gradient(135deg, #ff512f, #f09819);
+  color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  width: 400px;
+  max-height: 90vh;  /* Set max visible height */
+  overflow-y: auto;  /* Enable vertical scroll */
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+@media (max-height: 700px) {
+  .dialog-container {
+    padding: 20px;
+    max-height: 85vh;
+  }
+}
+.user-form input,
+.user-form select {
+  width: 100%;
+  box-sizing: border-box;
+}
+.profile-preview {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.avatar-fallback {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+
+
+
+/* Heading */
+.dialog-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* Toggle buttons */
+.type-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.type-buttons button {
+  background-color: #ffffff22;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.type-buttons button:hover,
+.type-buttons .active {
+  background-color: #ffffff55;
+  transform: scale(1.05);
+}
+
+/* Form layout */
+.user-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels and inputs */
+.user-form label {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.user-form input,
+.user-form select {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #ffffffcc;
+  color: #333;
+  font-size: 15px;
+}
+
+.user-form input:focus,
+.user-form select:focus {
+  outline: 2px solid #fff;
+}
+
+/* Error messages */
+.user-form small {
+  color: #ffe6e6;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Add User Button */
+.user-form button[type="button"] {
+  align-self: flex-start;
+  margin-top: 10px;
+  background-color: #fff;
+  color: #ff512f;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.user-form button[type="button"]:hover {
+  background-color: #ffe6d1;
+}
+
+/* Submit/Cancel buttons */
+.form-actions,
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.form-actions button,
+.dialog-actions button {
+  background-color: #fff;
+  color: #ff512f;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  min-width: 120px; /* Ensure consistent button width */
+  text-align: center;
+}
+
+.form-actions button:hover,
+.dialog-actions button:hover {
+  background-color: #ffe6d1;
+  transform: scale(1.05);
+}
+
+/* Radio buttons styling */
+.format-options label {
+  margin-right: 20px;
+  font-weight: 500;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}

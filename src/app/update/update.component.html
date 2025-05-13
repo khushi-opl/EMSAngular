@@ -1,8 +1,19 @@
 <!-- Update Student Form -->
 <div class="update-student-container">
-    <h3>Update Student</h3>
-  
-    <form [formGroup]="regForm" (ngSubmit)="updateUser(regForm.value)">
+    <form [formGroup]="regForm" (ngSubmit)="updateUser()">
+       <ng-container *ngIf="profile?.fileData; else aliasBlock">
+    <img [src]="'data:image/png;base64,' + profile.fileData" alt="profile" class="avatar-img" (error)="profile.fileData = null" />
+  </ng-container>
+  <ng-template #aliasBlock>
+    <div class="avatar-fallback">
+      {{ getInitials(profile?.username) }}
+    </div>
+  </ng-template>
+
+  <label for="profileImage">Profile Image</label>
+  <input type="file" id="profileImage" (change)="onImageSelected($event)" />
+
+    
       <!-- Student ID (readonly) -->
       <label for="sid">Student ID</label>
       <input type="text" id="sid" name="sid" placeholder="Student ID"  formControlName="sid" >
@@ -33,8 +44,8 @@
   
       <label for="email">pinCode</label>
       <input type="text" id="pinCode"  name="pinCode" formControlName="pinCode" >
-      
-  
+
+
       <!-- Submit Button -->
       <button type="submit" (click)="openDialog()">Update</button>
     </form>

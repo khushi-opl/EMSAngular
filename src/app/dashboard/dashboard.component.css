@@ -79,4 +79,27 @@ footer {
 footer p {
     margin: 0;
 }
+/* Gap between Profile button and dropdown */
+#role {
+    margin-left: 15px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #1a1a2e;
+    color: #fff;
+    border: 1px solid #2e2e3e;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#role:hover {
+    background-color: #2e2e4e;
+}
+
+/* Optional: Match font and look */
+#role option {
+    background-color: #1a1a2e;
+    color: #fff;
+}
 
